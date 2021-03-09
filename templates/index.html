@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>Stroke Predictions</title>
+</head>
+
+<body>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Medical Friend</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="{{ url_for('index') }}">Home</a>
+        <a class="p-2 text-dark" href="{{ url_for('result') }}">Result</a>
+    </nav>
+    <a class="btn btn-outline-primary" href="#">Sign up</a>
+</div>
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Do you have probability of Stroke?</h1>
+    <p class="lead">Let's find out that!</p>
+</div>
+
+<div class="container">
+    <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Fill Out the Fields</h4>
+            </div>
+            <div class="card-body">
+                <form action="{{ url_for('prediction') }}" method="post">
+                    <div class="mb-3">
+                        {# 'gender',#}
+                        {#  'age',#}
+                        {#  'hypertension',#}
+                        {#  'heart_disease',#}
+                        {#  'ever_married',#}
+                        {#  'work_type',#}
+                        {#  'Residence_type',#}
+                        {#  'avg_glucose_level',#}
+                        {#  'bmi',#}
+                        {#  'smoking_status'#}
+                        <select name="gender" class="form-select" aria-label="Default select example">
+                            <option selected>Open this select Gender</option>
+                            <option value="0">Male</option>
+                            <option value="1">Female</option>
+                            <option value="2">Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Age</label>
+                        <input name="age" type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Hypertenson</label>
+                        <select name="hypertension" class="form-select" aria-label="Default select example">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Heart Disease</label>
+                        <select name="heart_disease" class="form-select" aria-label="Default select example">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Ever Married</label>
+                        <select name="ever_married" class="form-select" aria-label="Default select example">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Worked Type</label>
+                        <select name="work_type" class="form-select" aria-label="Default select example">
+                            <option value="0">Private Job</option>
+                            <option value="1">Self Employed</option>
+                            <option value="2">Children</option>
+                            <option value="3">Government Job</option>
+                            <option value="4">Never Worked</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Residence Type</label>
+                        <select name="Residence_type" class="form-select" aria-label="Default select example">
+                            <option value="0">Urban</option>
+                            <option value="1">Rural</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Glucose Level</label>
+                        <input name="avg_glucose_level" type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">BMI</label>
+                        <input name="bmi" type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Smoking Status</label>
+                        <select name="smoking_status" class="form-select" aria-label="Default select example">
+                            <option value="0">Never Smoked</option>
+                            <option value="1">Unknown</option>
+                            <option value="2">Formerly Smoked</option>
+                            <option value="3">Chain Smoker</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+        integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+        integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
